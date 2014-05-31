@@ -18,23 +18,6 @@
         margin-top: 60px;
     }
     </style>
-    <script src="http://simplewebrtc.com/latest.js"></script>
-    <script>
-var webrtc = new SimpleWebRTC({
-    // the id/element dom element that will hold "our" video
-    localVideoEl: 'localVideo',
-    // the id/element dom element that will hold remote videos
-    remoteVideosEl: 'remotesVideos',
-    // immediately ask for camera access
-    autoRequestMedia: true
-});
-
-// we have to wait until it's ready
-webrtc.on('readyToCall', function () {
-  // you can name it anything
-  webrtc.joinRoom('your awesome room name');
-});
-    </script>
 </head>
 
 <body>
@@ -72,6 +55,8 @@ webrtc.on('readyToCall', function () {
                 <h2>You</h2>
                 <video height="300" id="localVideo"></video>
             </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <h2>Everyone Else</h2>
                 <div id="remotesVideos"></div>
@@ -84,7 +69,23 @@ webrtc.on('readyToCall', function () {
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="http://simplewebrtc.com/latest.js"></script>
+    <script>
+var webrtc = new SimpleWebRTC({
+    // the id/element dom element that will hold "our" video
+    localVideoEl: 'localVideo',
+    // the id/element dom element that will hold remote videos
+    remoteVideosEl: 'remotesVideos',
+    // immediately ask for camera access
+    autoRequestMedia: true
+});
 
+// we have to wait until it's ready
+webrtc.on('readyToCall', function () {
+  // you can name it anything
+  webrtc.joinRoom('your awesome room name');
+});
+    </script>
 </body>
 
 </html>
